@@ -1,23 +1,17 @@
 {% extends 'base.html' %}
 {% block container %}
 
-<h1>Post Olustur</h1>
-<br>
+{% if user.is_authenticated %}
+    <h3>Post Olustur</h3>
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
 
-<form method="POST" , action="/kaydet/">
-    {% csrf_token %}
-    <label for="baslik">Post Baslik: </label><br>
-    <textarea name="baslik" rows="2" cols="20"></textarea><br>
+        <button class="btn btn-secondary">Olustur</button>
 
-    <label for="slug">Slug: </label><br>
-    <textarea name="slug" rows="2" cols="20"></textarea><br>
-
-
-    <label for="tmetin">Post Icerigi: </label><br>
-    <textarea name="tmetin" rows="20" cols="50"></textarea><br>
-
-
-    <input type="submit" />
-</form>
-
+    </form>
+{% else %}
+    <h1>Hata 403 - Bu sayfayi gormek icin yetkiniz yok.</h1>
+{% endif %}
 {% endblock %}

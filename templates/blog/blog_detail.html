@@ -3,10 +3,22 @@
 {% block container %}
 <div class="row">
     <div class="card">
-        <h5 class="card-header">{{ post.title }} yazar: <span class="text-primary">{{ post.author }}</span></h5>
+        <h4 class="card-header">{{post.title}}</h4>
+
+        <h6 class="card-header">
+            Gonderen: <span class="text-primary">{{ post.author }}</span><br>
+            Yayin Tarihi: {{ post.publish }}
+            {% if user.is_authenticated %}
+                {% if user.username == post.author.username %}
+                    <br><br>
+                    <a href="{{ post.get_absolute_url }}update" class="btn btn-primary">Duzenle</a>
+                    <a href="{{ post.get_absolute_url }}delete" class="btn btn-primary">Sil</a>
+                {% endif %}
+            {% endif %}
+        </h6>
+        
+        
         <div class="card-body">
-            <h5 class="card-title">Yayin Tarihi: {{ post.publish }}</h5>
-            <br>
             <p class="card-text">{{ post.body }}</p>
         </div>
     </div>

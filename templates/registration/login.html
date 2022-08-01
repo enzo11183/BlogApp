@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block container %}
+
+<h3>Oturum ac</h3>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-secondary">Giris yap</button>
+</form>
+
+{% endblock %}

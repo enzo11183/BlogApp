@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block container %}
+
+{% if user.is_authenticated %}
+    {% if user.username == post.author.username %}
+        <h3>Post Sil</h3>
+        <h4>Silinecek postun basligi: {{post.title}}</h4>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+
+            <button class="btn btn-secondary">Sil</button>
+
+        </form>
+    {% else %}
+        <h1>Hata - Baska bir kullanicinin mesajini silemezsiniz.</h1>
+    {% endif %}
+{% else %}
+    <h1>Hata 403 - Bu sayfayi gormek icin yetkiniz yok.</h1>
+
+{% endif %}
+{% endblock %}

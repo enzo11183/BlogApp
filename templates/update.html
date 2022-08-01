@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block container %}
+{% if user.is_authenticated %}
+    {% if user.username == post.author.username %}
+        <h3>Post Duzenle</h3>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button class="btn btn-secondary">Uygula</button>
+
+        </form>
+    {% else %}
+        <h1>Hata - Baska bir kullanicinin mesajini degistiremezsiniz.</h1>
+    {% endif %}
+
+{% else %}
+<h1>Hata 403 - Bu sayfayi gormek icin yetkiniz yok.</h1>
+
+{% endif %}
+{% endblock %}

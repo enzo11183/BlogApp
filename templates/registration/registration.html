@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block container %}
+
+<h3>Kaydol</h3>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-secondary">Uyelik olustur</button>
+</form>
+
+{% endblock %}
