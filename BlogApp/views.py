@@ -9,14 +9,14 @@ from django.db.models import Model
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 import datetime
-from django.urls import reverse_lazy
+
 
 class createPage(CreateView):
     model = Post
     template_name='create.html'
     fields= ['title', 'body']
     success_url = '/'
-    
+    #olusacak postun yazari o an giris yapmis kisi olsun
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
