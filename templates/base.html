@@ -54,7 +54,9 @@
                 </ul>
 
                 {% if user.is_authenticated %}
-                <li class="btn btn-outline-success my-2 my-sm-0">{{user.username}}</li>
+                    <a href="/members/delete" class="btn btn-secondary">Hesabimi Sil</a>
+                    <a>&nbsp;</a>
+                    <li class="btn btn-outline-success my-2 my-sm-0">{{user.username}}</li>
                 {% endif %}
 
             </div>
