@@ -1,15 +1,12 @@
 from django.shortcuts import render
-
 # Create your views here.
 from .models import Post
 from django.views.generic import ListView, DeleteView, DetailView, TemplateView, CreateView, UpdateView
-
 from django.db import models
 from django.db.models import Model
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 import datetime
-
 
 class createPage(CreateView):
     model = Post
@@ -21,7 +18,6 @@ class createPage(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-
 class updatePost(UpdateView):
     model = Post
     template_name='update.html'
@@ -31,8 +27,6 @@ class deletePost(DeleteView):
     model = Post
     template_name = 'delete.html'
     success_url = '/'
-
-
 
 class BlogListView(ListView):
     model = Post
