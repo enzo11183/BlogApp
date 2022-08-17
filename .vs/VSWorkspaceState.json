@@ -1,6 +1,5 @@
 {
   "ExpandedNodes": [
-    "",
     "\\BlogApp",
     "\\blogProjectv1",
     "\\members",
@@ -8,6 +7,5 @@
     "\\templates\\blog",
     "\\templates\\registration"
   ],
-  "SelectedNode": "\\members\\views.py",
   "PreviewInSolutionExplorer": false
 }
